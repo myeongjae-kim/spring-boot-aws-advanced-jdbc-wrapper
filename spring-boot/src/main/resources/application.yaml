@@ -11,3 +11,8 @@ spring:
   h2:
     console:
       enabled: false
+  datasource:
+    driver-class-name: software.amazon.jdbc.Driver
+    username: ${RDS_USERNAME}
+    password: ${RDS_PASSWORD}
+    url: "jdbc:aws-wrapper:mysql://${RDS_HOST}:${RDS_PORT}/db?wrapperPlugins=readWriteSplitting,failover,efm"
