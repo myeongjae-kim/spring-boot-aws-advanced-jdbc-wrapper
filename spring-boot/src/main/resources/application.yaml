@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: create # production에서는 꼭 ddl-auto: none을 사용해야 한다.
+  h2:
+    console:
+      enabled: false
