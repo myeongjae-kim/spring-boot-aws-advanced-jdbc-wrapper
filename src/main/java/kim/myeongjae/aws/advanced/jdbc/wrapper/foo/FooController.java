@@ -21,8 +21,13 @@ public class FooController {
         return fooService.create();
     }
 
-    @GetMapping()
-    public List<FooResponse> findAll() {
-        return fooService.findAll();
+    @GetMapping(params = "db=reader")
+    public List<FooResponse> findAllFromReader() {
+        return fooService.findAllFromReader();
+    }
+
+    @GetMapping(params = "db=writer")
+    public List<FooResponse> findAllFromWriter() {
+        return fooService.findAllFromWriter();
     }
 }

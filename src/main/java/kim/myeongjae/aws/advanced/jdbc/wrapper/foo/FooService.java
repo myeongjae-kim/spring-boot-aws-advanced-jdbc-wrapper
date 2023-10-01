@@ -22,7 +22,14 @@ public class FooService {
     }
 
     @Transactional(readOnly = true)
-    public List<FooResponse> findAll() {
+    public List<FooResponse> findAllFromReader() {
+        return fooRepository.findAll().stream()
+                .map(FooResponse::from)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = false)
+    public List<FooResponse> findAllFromWriter() {
         return fooRepository.findAll().stream()
                 .map(FooResponse::from)
                 .collect(Collectors.toList());
