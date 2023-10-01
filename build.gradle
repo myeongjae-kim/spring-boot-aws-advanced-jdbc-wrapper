@@ -23,7 +23,7 @@ dependencies {
 	// Select one of the following three connectors
 	implementation 'software.aws.rds:aws-mysql-jdbc:1.1.9'
 //	implementation 'com.mysql:mysql-connector-j'
-//	implementation 'org.mariadb.jdbc:mariadb-java-client'
+//	implementation 'org.mariadb.jdbc:mariadb-java-client' // mariadb를 선택하는 경우 application.yaml에서 url을 mariadb용으로 변경해야 함.
 
 	runtimeOnly 'com.h2database:h2'
 
