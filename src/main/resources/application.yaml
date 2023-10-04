@@ -17,3 +17,5 @@ spring:
     password: ${RDS_PASSWORD}
     url: "jdbc:aws-wrapper:mysql://${RDS_HOST}:${RDS_PORT}/db?wrapperPlugins=readWriteSplitting,failover,efm"
 #    url: "jdbc:aws-wrapper:mariadb://${RDS_HOST}:${RDS_PORT},${RDS_READER_HOST}:${RDS_READER_PORT}/db?wrapperPlugins=readWriteSplitting"
+    hikari:
+      exception-override-class-name: software.amazon.jdbc.util.HikariCPSQLException
