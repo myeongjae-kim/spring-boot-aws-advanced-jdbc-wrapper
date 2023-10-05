@@ -18,7 +18,7 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'software.amazon.jdbc:aws-advanced-jdbc-wrapper:2.2.4'
+	implementation 'software.amazon.jdbc:aws-advanced-jdbc-wrapper:2.2.5'
 
 	// Select one of the following three connectors
 	implementation 'com.mysql:mysql-connector-j:8.0.33' // aws-advanced-jdbc-wrapper가 8.0버전 사용을 권장하므로 명시적으로 버전을 지정함.

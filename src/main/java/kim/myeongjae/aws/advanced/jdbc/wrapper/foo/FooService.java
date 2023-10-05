@@ -23,14 +23,14 @@ public class FooService {
 
     @Transactional(readOnly = true)
     public List<FooResponse> findAllFromReader() {
-        return fooRepository.findAll().stream()
+        return fooRepository.findTop100ByOrderByIdDesc().stream()
                 .map(FooResponse::from)
                 .collect(Collectors.toList());
     }
 
-    @Transactional(readOnly = false)
+    @Transactional
     public List<FooResponse> findAllFromWriter() {
-        return fooRepository.findAll().stream()
+        return fooRepository.findTop100ByOrderByIdDesc().stream()
                 .map(FooResponse::from)
                 .collect(Collectors.toList());
     }
