@@ -7,16 +7,29 @@ spring:
         format_sql: true
     open-in-view: false
     hibernate:
-      ddl-auto: create # production에서는 꼭 ddl-auto: none을 사용해야 한다.
+      ddl-auto: none # 데이터베이스 인스턴스 생성 후에 ddl-auto: create 로 애플리케이션을 한 번 실행해서 ddl을 실행하면 편하다.
   h2:
     console:
       enabled: false
   datasource:
-    driver-class-name: software.amazon.jdbc.Driver
     username: ${RDS_USERNAME}
     password: ${RDS_PASSWORD}
-    url: "jdbc:aws-wrapper:mysql://${RDS_HOST}:${RDS_PORT}/db?wrapperPlugins=readWriteSplitting,failover,efm&keepSessionStateOnFailover=true"
-#    url: "jdbc:aws-wrapper:mariadb://${RDS_HOST}:${RDS_PORT},${RDS_READER_HOST}:${RDS_READER_PORT}/db?wrapperPlugins=readWriteSplitting"
     hikari:
-      exception-override-class-name: software.amazon.jdbc.util.HikariCPSQLException
+#      exception-override-class-name: software.amazon.jdbc.util.HikariCPSQLException // aws-advanced-jdbc-wrapper
       auto-commit: false
+    # aws-mysql-jdbc
+    driver-class-name: software.aws.rds.jdbc.mysql.Driver
+    url: "jdbc:mysql:aws://${RDS_HOST}:${RDS_PORT}/db?useConnectionPlugins=true&enableClusterAwareFailover=true&failureDetectionEnabled=true"
+    # mariadb-java-client 2.7.10
+#    driver-class-name: org.mariadb.jdbc.Driver # mariadb-java-client
+#    url: "jdbc:mariadb:aurora://${RDS_HOST}:${RDS_PORT}/db" # mariadb-java-client
+#    url: "jdbc:mariadb:aurora://${RDS_HOST}:${RDS_PORT},${RDS_READER_HOST}:${RDS_READER_PORT}/db" # mariadb-java-client
+    # mariadb-java-client 3.2.0
+#    driver-class-name: org.mariadb.jdbc.Driver # mariadb-java-client
+#    url: "jdbc:mariadb:replication://${RDS_HOST}:${RDS_PORT},${RDS_READER_HOST}:${RDS_READER_PORT}/db" # mariadb-java-client
+    # aws-advanced-jdbc-wrapper
+#    driver-class-name: software.amazon.jdbc.Driver
+#    url: "jdbc:aws-wrapper:mysql://${RDS_HOST}:${RDS_PORT}/db?wrapperPlugins=failover,efm&keepSessionStateOnFailover=true"
+    # mysql-connector-j
+#    driver-class-name: com.mysql.cj.jdbc.Driver # mysql-connector-j
+#    url: "jdbc:mysql:replication://${RDS_HOST}:${RDS_PORT},${RDS_READER_HOST}:${RDS_READER_PORT}/db" # mysql-connector-j
