@@ -21,8 +21,8 @@ dependencies {
 //	implementation 'software.amazon.jdbc:aws-advanced-jdbc-wrapper:2.2.5'
 
 	// Select one of the following connectors
-	implementation 'software.aws.rds:aws-mysql-jdbc:1.1.10'
-//	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.10'
+//	implementation 'software.aws.rds:aws-mysql-jdbc:1.1.10'
+	implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.10'
 //	implementation 'org.mariadb.jdbc:mariadb-java-client:3.2.0'
 //	implementation 'com.mysql:mysql-connector-j:8.0.33'
 

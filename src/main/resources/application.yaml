@@ -18,12 +18,12 @@ spring:
 #      exception-override-class-name: software.amazon.jdbc.util.HikariCPSQLException // aws-advanced-jdbc-wrapper
       auto-commit: false
     # aws-mysql-jdbc
-    driver-class-name: software.aws.rds.jdbc.mysql.Driver
-    url: "jdbc:mysql:aws://${RDS_HOST}:${RDS_PORT}/db?useConnectionPlugins=true&enableClusterAwareFailover=true&failureDetectionEnabled=true"
+#    driver-class-name: software.aws.rds.jdbc.mysql.Driver
+#    url: "jdbc:mysql:aws://${RDS_HOST}:${RDS_PORT}/db?useConnectionPlugins=true&enableClusterAwareFailover=true&failureDetectionEnabled=true"
     # mariadb-java-client 2.7.10
-#    driver-class-name: org.mariadb.jdbc.Driver # mariadb-java-client
+    driver-class-name: org.mariadb.jdbc.Driver # mariadb-java-client
 #    url: "jdbc:mariadb:aurora://${RDS_HOST}:${RDS_PORT}/db" # mariadb-java-client
-#    url: "jdbc:mariadb:aurora://${RDS_HOST}:${RDS_PORT},${RDS_READER_HOST}:${RDS_READER_PORT}/db" # mariadb-java-client
+    url: "jdbc:mariadb:aurora://${RDS_HOST}:${RDS_PORT},${RDS_READER_HOST}:${RDS_READER_PORT}/db" # mariadb-java-client
     # mariadb-java-client 3.2.0
 #    driver-class-name: org.mariadb.jdbc.Driver # mariadb-java-client
 #    url: "jdbc:mariadb:replication://${RDS_HOST}:${RDS_PORT},${RDS_READER_HOST}:${RDS_READER_PORT}/db" # mariadb-java-client
